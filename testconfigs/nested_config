@@ -1,0 +1,6 @@
+server {
+  listen 80;
+  location ~ ^/forum/(?P.*)$ {
+    return 301 $scheme://forum.domain.com/$1;
+  }
+}
