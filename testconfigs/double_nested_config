@@ -1,0 +1,16 @@
+user  www www;
+events {
+  worker_connections 4096;
+}
+
+http {
+  include conf/mime.types;
+  server {
+    listen 80;
+    server_name domain1.com www.domain1.com;
+
+    location ~ \.php$ {
+      fastcgi_pass 127.0.0.1:1025;
+    }
+  }
+}
